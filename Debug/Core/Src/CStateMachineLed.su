@@ -1,0 +1,5 @@
+CStateMachineLed.cpp:10:1:CStateMachineLed::CStateMachineLed()	16	static
+CStateMachineLed.cpp:15:1:CStateMachineLed::~CStateMachineLed()	16	static
+CStateMachineLed.cpp:15:1:virtual CStateMachineLed::~CStateMachineLed()	16	static
+CStateMachineLed.cpp:19:6:void CStateMachineLed::init(CLed*, CButton*)	24	static
+CStateMachineLed.cpp:25:6:void CStateMachineLed::update()	16	static

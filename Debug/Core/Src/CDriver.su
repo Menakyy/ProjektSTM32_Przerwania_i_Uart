@@ -1,0 +1,7 @@
+CDriver.cpp:19:1:CDriver::CDriver()	16	static
+CDriver.cpp:22:1:CDriver::~CDriver()	16	static
+CDriver.cpp:26:6:void CDriver::init()	16	static
+CDriver.cpp:36:6:void CDriver::update()	16	static
+CDriver.cpp:42:1:void __static_initialization_and_destruction_0(int, int)	16	static
+CDriver.cpp:42:1:cpp)	8	static
+CDriver.cpp:42:1:cpp)	8	static

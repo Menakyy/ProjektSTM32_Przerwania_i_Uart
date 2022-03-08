@@ -1,0 +1,5 @@
+CButton.cpp:13:6:void CButton::init(GPIO_TypeDef*, uint16_t, uint32_t)	24	static
+CButton.cpp:21:6:void CButton::update()	16	static
+CButton.cpp:57:6:void CButton::setTimerDobounce(uint32_t)	16	static
+CButton.cpp:62:6:void CButton::setState(CButton::ButtonStates)	16	static
+CButton.cpp:67:23:CButton::ButtonStates CButton::getState()	16	static
