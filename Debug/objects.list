@@ -1,5 +1,6 @@
 "Core/Src/CButton.o"
 "Core/Src/CDriver.o"
+"Core/Src/CHelper.o"
 "Core/Src/CLed.o"
 "Core/Src/CStateMachineLed.o"
 "Core/Src/main.o"
