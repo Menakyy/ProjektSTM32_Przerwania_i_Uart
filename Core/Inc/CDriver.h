@@ -13,6 +13,8 @@
 #include "CButton.h"
 #include "GPIOs.h"
 #include "CStateMachineLed.h"
+#include "CHelper.h"
+
 class CDriver
 {
 
@@ -23,10 +25,9 @@ public:
 	void init();
 	void update();
 
-
+	UART_HandleTypeDef* m_uartDriver = CHelper::getUart();
 
 	static CLed 			m_greenLed;
-
 	static CButton			m_blueButton;
 	static CStateMachineLed m_stateMachineLed;
 };

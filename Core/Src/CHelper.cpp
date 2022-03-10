@@ -10,6 +10,9 @@
 #include "CHelper.h"
 
 
+UART_HandleTypeDef CHelper::huart2;
+
+
 void CHelper::init()
 {
 	SystemClock_Config();

@@ -26,7 +26,8 @@ public:
 	static void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 	static void Error_Handler();
 
-	UART_HandleTypeDef huart2;
+	static UART_HandleTypeDef huart2;
+	static inline UART_HandleTypeDef* getUart() {return &huart2;}
 };
 
 

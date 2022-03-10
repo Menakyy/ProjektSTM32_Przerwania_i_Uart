@@ -8,10 +8,7 @@
 
 #include "CDriver.h"
 
-
 CLed CDriver::m_greenLed;
-
-
 CButton CDriver::m_blueButton;
 CStateMachineLed CDriver::m_stateMachineLed;
 
@@ -25,11 +22,9 @@ CDriver::~CDriver()
 
 void CDriver::init()
 {
-	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::toggle);
-
+	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::on);
 	m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
-
-	m_stateMachineLed.init(&m_greenLed,&m_blueButton);
+	m_stateMachineLed.init(&m_greenLed,&m_blueButton,m_uartDriver);
 }
 
 

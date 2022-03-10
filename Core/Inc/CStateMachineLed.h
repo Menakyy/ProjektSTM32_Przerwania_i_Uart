@@ -18,12 +18,13 @@ public:
 	virtual ~CStateMachineLed();
 
 
-	void init(CLed* led, CButton* button);
+	void init(CLed* led, CButton* button, UART_HandleTypeDef* uart);
 	void update();
 
 private:
 	CLed* 			led;
 	CButton* 		button;
+	UART_HandleTypeDef* uart;
 
 };
 

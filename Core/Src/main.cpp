@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "CDriver.h"
-#include "CLed.h"
 #include "string.h"
 #include "stdio.h"
 //#include "CHelper.h"
@@ -113,7 +112,7 @@ int main(void)
   while (1)
   {
 
-	  //m_driver.update();
+	  m_driver.update();
 
 
 
