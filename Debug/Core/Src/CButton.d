@@ -27,7 +27,7 @@ Core/Src/CButton.o: ../Core/Src/CButton.cpp ../Core/Inc/CButton.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- ../Core/Inc/GPIOs.h
+ ../Core/Inc/GPIOs.h ../Core/Inc/IGPIO.h
 
 ../Core/Inc/CButton.h:
 
@@ -88,3 +88,5 @@ Core/Src/CButton.o: ../Core/Src/CButton.cpp ../Core/Inc/CButton.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
 
 ../Core/Inc/GPIOs.h:
+
+../Core/Inc/IGPIO.h:

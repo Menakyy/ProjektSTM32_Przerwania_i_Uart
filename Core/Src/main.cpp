@@ -50,8 +50,7 @@
 /* USER CODE BEGIN PV */
 CDriver m_driver;
 
-uint8_t buffor[32];
-uint8_t length;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,7 +59,8 @@ uint8_t length;
 //static void MX_USART2_UART_Init(void);
 //static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-void uartLog(const char* buffor);
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,7 +101,6 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 
-  const char message[] = "Hello world!\n";
 
   /* USER CODE END 2 */
 

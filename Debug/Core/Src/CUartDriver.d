@@ -1,5 +1,5 @@
-Core/Src/CStateMachineLed.o: ../Core/Src/CStateMachineLed.cpp \
- ../Core/Inc/CStateMachineLed.h ../Core/Inc/CLed.h \
+Core/Src/CUartDriver.o: ../Core/Src/CUartDriver.cpp \
+ ../Core/Inc/CUartDriver.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  ../Core/Inc/stm32f3xx_hal_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
@@ -27,13 +27,9 @@ Core/Src/CStateMachineLed.o: ../Core/Src/CStateMachineLed.cpp \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h \
- ../Core/Inc/IGPIO.h ../Core/Inc/CButton.h ../Core/Inc/GPIOs.h \
- ../Core/Inc/CUartDriver.h
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h
 
-../Core/Inc/CStateMachineLed.h:
-
-../Core/Inc/CLed.h:
+../Core/Inc/CUartDriver.h:
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 
@@ -90,11 +86,3 @@ Core/Src/CStateMachineLed.o: ../Core/Src/CStateMachineLed.cpp \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:
 
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart_ex.h:
-
-../Core/Inc/IGPIO.h:
-
-../Core/Inc/CButton.h:
-
-../Core/Inc/GPIOs.h:
-
-../Core/Inc/CUartDriver.h:

@@ -1,8 +1,9 @@
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define B1_EXTI_IRQn EXTI15_10_IRQn
-#define _Pin GPIO_PIN_0
+#define Mybutton_Pin GPIO_PIN_0
 #define Mybutton_GPIO_Port GPIOC
+#define Mybutton_EXTI_IRQn EXTI0_IRQn
 #define Reddiode_Pin GPIO_PIN_1
 #define Reddiode_GPIO_Port GPIOC
 #define USART_TX_Pin GPIO_PIN_2

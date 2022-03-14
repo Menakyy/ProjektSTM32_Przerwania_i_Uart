@@ -18,7 +18,7 @@ CStateMachineLed::~CStateMachineLed() {
 	// TODO Auto-generated destructor stub
 }
 
-void CStateMachineLed::init(CLed* led, CButton* button, UART_HandleTypeDef* uart)
+void CStateMachineLed::init(CLed* led, CButton* button, CUartDriver* uart)
 {
 	this->led 		= led;
 	this->button 	= button;
@@ -31,7 +31,7 @@ void CStateMachineLed::update()
 	{
 		led->turnOffLed();
 		const char message[] = "Dioda wylaczona \r\n";
-		HAL_UART_Transmit(uart, (uint8_t*)message, strlen(message), 500);
+		uart->transmit((uint8_t*)message, strlen(message), 500);
 	}
 
 	if(button->getState() == CButton::pressed && led->getState() == CLed::off)

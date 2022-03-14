@@ -11,6 +11,8 @@
 
 #include "CLed.h"
 #include "CButton.h"
+#include "CUartDriver.h"
+#include "IGPIO.h"
 
 class CStateMachineLed {
 public:
@@ -18,13 +20,14 @@ public:
 	virtual ~CStateMachineLed();
 
 
-	void init(CLed* led, CButton* button, UART_HandleTypeDef* uart);
+	void init(CLed* led, CButton* button, CUartDriver* uart);
 	void update();
 
 private:
 	CLed* 			led;
 	CButton* 		button;
-	UART_HandleTypeDef* uart;
+
+	CUartDriver* 	uart;
 
 };
 

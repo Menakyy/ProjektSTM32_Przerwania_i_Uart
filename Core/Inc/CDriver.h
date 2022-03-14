@@ -14,6 +14,7 @@
 #include "GPIOs.h"
 #include "CStateMachineLed.h"
 #include "CHelper.h"
+#include "CUartDriver.h"
 
 class CDriver
 {
@@ -25,7 +26,8 @@ public:
 	void init();
 	void update();
 
-	UART_HandleTypeDef* m_uartDriver = CHelper::getUart();
+
+	static CUartDriver		m_uartDriver;
 
 	static CLed 			m_greenLed;
 	static CButton			m_blueButton;

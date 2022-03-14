@@ -9,10 +9,16 @@
 #define INC_CLED_H_
 
 #include "stm32f3xx_hal.h"
-class CLed
+#include "IGPIO.h"
+
+class CLed : public IGPIO
 {
 
 public:
+
+	CLed();
+	virtual ~CLed();
+
 	enum LedStates
 	{
 		on,
@@ -20,11 +26,8 @@ public:
 		toggle
 	};
 
-	CLed();
-	virtual ~CLed();
-
 	void init(GPIO_TypeDef* GpioPort, uint16_t GpioPin, LedStates state);
-	void update();
+	virtual void update();
 
 	void 		setState(LedStates state);
 	LedStates 	getState();

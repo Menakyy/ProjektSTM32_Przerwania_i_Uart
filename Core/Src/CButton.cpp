@@ -10,6 +10,15 @@
 #include <CButton.h>
 
 
+CButton::CButton() {
+	// TODO Auto-generated constructor stub
+
+}
+
+CButton::~CButton() {
+	// TODO Auto-generated destructor stub
+}
+
 void CButton::init(GPIO_TypeDef* GpioPort, uint16_t GpioPin, uint32_t timerDebounce)
 {
 	this->GpioPort 	= GpioPort;

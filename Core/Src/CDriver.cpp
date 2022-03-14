@@ -8,6 +8,8 @@
 
 #include "CDriver.h"
 
+CUartDriver CDriver::m_uartDriver;
+
 CLed CDriver::m_greenLed;
 CButton CDriver::m_blueButton;
 CStateMachineLed CDriver::m_stateMachineLed;
@@ -22,9 +24,11 @@ CDriver::~CDriver()
 
 void CDriver::init()
 {
+	m_uartDriver.init(CHelper::getUart());
+
 	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::on);
 	m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
-	m_stateMachineLed.init(&m_greenLed,&m_blueButton,m_uartDriver);
+	m_stateMachineLed.init(&m_greenLed,&m_blueButton,&m_uartDriver);
 }
 
 
@@ -32,6 +36,5 @@ void CDriver::update()
 {
 	m_blueButton.update();
 	m_greenLed.update();
-
 	m_stateMachineLed.update();
 }

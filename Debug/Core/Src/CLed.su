@@ -1,8 +1,9 @@
+IGPIO.h:11:7:constexpr IGPIO::IGPIO()	16	static
 CLed.cpp:10:1:CLed::CLed()	16	static
 CLed.cpp:15:1:CLed::~CLed()	16	static
 CLed.cpp:15:1:virtual CLed::~CLed()	16	static
 CLed.cpp:19:6:void CLed::init(GPIO_TypeDef*, uint16_t, CLed::LedStates)	24	static
-CLed.cpp:27:6:void CLed::update()	16	static
+CLed.cpp:27:6:virtual void CLed::update()	16	static
 CLed.cpp:56:6:void CLed::togglePin()	16	static
 CLed.cpp:61:6:void CLed::turnOnLed()	16	static
 CLed.cpp:66:6:void CLed::turnOffLed()	16	static
