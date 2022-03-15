@@ -9,6 +9,9 @@
 #include "string.h"
 #include "stdio.h"
 
+
+uint8_t CStateMachineLed::buffer[32];
+
 CStateMachineLed::CStateMachineLed() {
 	// TODO Auto-generated constructor stub
 
@@ -27,14 +30,17 @@ void CStateMachineLed::init(CLed* led, CButton* button, CUartDriver* uart)
 
 void CStateMachineLed::update()
 {
-	if(button->getState() == CButton::pressed && led->getState() == CLed::on)
+	//uartReceive();
+
+	if(button->getState() == CButton::pressed && led->getState() == CLed::on /*&& checkReceive()*/)
 	{
 		led->turnOffLed();
-		const char message[] = "Dioda wylaczona \r\n";
-		uart->transmit((uint8_t*)message, strlen(message), 500);
+
+//		const char message[] = "Dioda wylaczona \r\n";
+//		uart->transmit((uint8_t*)message, strlen(message), 500);
 	}
 
-	if(button->getState() == CButton::pressed && led->getState() == CLed::off)
+	if(button->getState() == CButton::pressed && led->getState() == CLed::off /*&& checkReceive()*/)
 	{
 		led->turnOnLed();
 	}
@@ -43,4 +49,19 @@ void CStateMachineLed::update()
 	{
 		led->togglePin();
 	}
+}
+
+void CStateMachineLed::uartReceive()
+{
+	uart->receive(buffer, 1, 200);
+}
+
+bool CStateMachineLed::checkReceive()
+{
+	if(buffer[0] == 'o')
+	{
+		return true;
+	}
+
+	return false;
 }

@@ -23,11 +23,16 @@ public:
 	void init(CLed* led, CButton* button, CUartDriver* uart);
 	void update();
 
+	void uartReceive();
+	bool checkReceive();
+
+	static uint8_t buffer[32];
+
 private:
 	CLed* 			led;
 	CButton* 		button;
-
 	CUartDriver* 	uart;
+
 
 };
 

@@ -20,7 +20,7 @@ public:
 
 	void init(UART_HandleTypeDef* m_uartDriver);
 	void transmit(uint8_t *pData, uint16_t Size, uint32_t Timeout);
-	void receive();
+	void receive(uint8_t *pData, uint16_t Size, uint32_t Timeout);
 
 	HAL_StatusTypeDef getHalStatus();
 

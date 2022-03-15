@@ -26,9 +26,7 @@ void CUartDriver::transmit(uint8_t *pData, uint16_t Size, uint32_t Timeout)
 	HAL_UART_Transmit(m_uartDriver, pData, Size, Timeout);
 }
 
-
-
-//HAL_StatusTypeDef CUartDriver::getHalStatus()
-//{
-//
-//}
+void CUartDriver::receive(uint8_t *pData, uint16_t Size, uint32_t Timeout)
+{
+	HAL_UART_Receive(m_uartDriver, pData, Size, Timeout);
+}
