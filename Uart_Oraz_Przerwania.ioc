@@ -120,6 +120,7 @@ PC0.Signal=GPXTI0
 RCC.APB1CLKDivider=RCC_HCLK_DIV2
 PC14-OSC32_IN.Signal=RCC_OSC32_IN
 boardIOC=true
+NVIC.USART2_IRQn=true\:0\:0\:false\:true\:true\:2\:true\:true
 USART2.BaudRate=115200
 RCC.FamilyName=M
 PA3.Mode=Asynchronous

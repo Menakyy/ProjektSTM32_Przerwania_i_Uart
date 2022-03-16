@@ -23,7 +23,6 @@ public:
 	static void MX_NVIC_Init(void);
 
 	//functions
-	static void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 	static void Error_Handler();
 
 	static UART_HandleTypeDef huart2;

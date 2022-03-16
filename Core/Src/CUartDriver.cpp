@@ -30,3 +30,8 @@ void CUartDriver::receive(uint8_t *pData, uint16_t Size, uint32_t Timeout)
 {
 	HAL_UART_Receive(m_uartDriver, pData, Size, Timeout);
 }
+
+void CUartDriver::transmitIT(uint8_t *pData, uint16_t Size)
+{
+	HAL_UART_Transmit_IT(m_uartDriver, pData, Size);
+}

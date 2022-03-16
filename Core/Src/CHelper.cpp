@@ -21,7 +21,7 @@ void CHelper::init()
 	MX_NVIC_Init();
 }
 
-void CHelper::HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == Mybutton_Pin)
 	{
@@ -31,6 +31,14 @@ void CHelper::HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	if(GPIO_Pin == B1_Pin)
 	{
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+	}
+}
+
+extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart->Instance == USART2)	//huart->Instance == USART2
+	{
+
 	}
 }
 
@@ -83,8 +91,13 @@ void CHelper::MX_GPIO_Init()
 
 void CHelper::MX_NVIC_Init()
 {
+	/* EXTI15_10_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+	/* USART2_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(USART2_IRQn);
 }
 
 void CHelper::MX_USART2_UART_Init()

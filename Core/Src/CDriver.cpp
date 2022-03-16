@@ -7,6 +7,10 @@
 
 
 #include "CDriver.h"
+#include "string.h"
+#include "stdio.h"
+
+uint8_t CDriver::driverBuffer[32];
 
 CUartDriver CDriver::m_uartDriver;
 
@@ -34,7 +38,17 @@ void CDriver::init()
 
 void CDriver::update()
 {
-	m_blueButton.update();
-	m_greenLed.update();
-	m_stateMachineLed.update();
+//	m_blueButton.update();
+//	m_greenLed.update();
+//	m_stateMachineLed.update();
+
+
+
+
+	const char message[] = "Dioda wylaczona \r\n";
+	m_uartDriver.transmitIT((uint8_t*)message, strlen(message));
+	m_greenLed.togglePin();
+	HAL_Delay(100);
+
+
 }
