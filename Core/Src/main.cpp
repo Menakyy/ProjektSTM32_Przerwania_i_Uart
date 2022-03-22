@@ -101,7 +101,6 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
 
-
   /* USER CODE END 2 */
 
 
@@ -111,7 +110,7 @@ int main(void)
   while (1)
   {
 
-	  //m_driver.update();
+	  m_driver.update();
 
 
 

@@ -8,7 +8,7 @@
 
 
 #include "CHelper.h"
-
+#include "CDriver.h"
 
 UART_HandleTypeDef CHelper::huart2;
 
@@ -36,9 +36,17 @@ extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart->Instance == USART2)	//huart->Instance == USART2
+	if(huart == CHelper::getUart()) //huart->Instance == USART2
 	{
 
+	}
+}
+
+extern "C" void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart == CHelper::getUart())
+	{
+		CDriver::m_uartDriver.irqRxComplete();
 	}
 }
 

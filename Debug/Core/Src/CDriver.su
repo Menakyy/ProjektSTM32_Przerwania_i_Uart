@@ -1,8 +1,8 @@
 CHelper.h:29:36:static UART_HandleTypeDef* CHelper::getUart()	4	static
-CDriver.cpp:22:1:CDriver::CDriver()	16	static
-CDriver.cpp:25:1:CDriver::~CDriver()	16	static
-CDriver.cpp:29:6:void CDriver::init()	16	static
-CDriver.cpp:39:6:void CDriver::update()	48	static
+CDriver.cpp:25:1:CDriver::CDriver()	16	static
+CDriver.cpp:28:1:CDriver::~CDriver()	16	static
+CDriver.cpp:32:6:void CDriver::init()	16	static
+CDriver.cpp:42:6:void CDriver::update()	16	static
 CDriver.cpp:54:1:void __static_initialization_and_destruction_0(int, int)	16	static
 CDriver.cpp:54:1:cpp)	8	static
 CDriver.cpp:54:1:cpp)	8	static

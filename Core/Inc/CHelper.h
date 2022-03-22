@@ -10,6 +10,7 @@
 
 #include "stm32f3xx_hal.h"
 #include "main.h"
+
 class CHelper
 {
 
@@ -25,8 +26,10 @@ public:
 	//functions
 	static void Error_Handler();
 
-	static UART_HandleTypeDef huart2;
 	static inline UART_HandleTypeDef* getUart() {return &huart2;}
+
+private:
+	static UART_HandleTypeDef huart2;
 };
 
 

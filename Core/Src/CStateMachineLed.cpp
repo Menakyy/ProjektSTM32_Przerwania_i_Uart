@@ -32,15 +32,16 @@ void CStateMachineLed::update()
 {
 	//uartReceive();
 
-	if(button->getState() == CButton::pressed && led->getState() == CLed::on /*&& checkReceive()*/)
+	if(button->getState() == CButton::pressed && led->getState() == CLed::on)
 	{
 		led->turnOffLed();
 
-//		const char message[] = "Dioda wylaczona \r\n";
-//		uart->transmit((uint8_t*)message, strlen(message), 500);
+		const char message[] = "Dioda wylaczona \r\n";
+		uart->transmit((uint8_t*)message, strlen(message), 500);
+		//uart->transmitIT((uint8_t*)message, strlen(message));
 	}
 
-	if(button->getState() == CButton::pressed && led->getState() == CLed::off /*&& checkReceive()*/)
+	if(button->getState() == CButton::pressed && led->getState() == CLed::off)
 	{
 		led->turnOnLed();
 	}

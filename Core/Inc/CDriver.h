@@ -35,6 +35,7 @@ public:
 
 
 	static uint8_t driverBuffer[32];
+	static uint8_t testValue;
 };
 
 
