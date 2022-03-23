@@ -20,16 +20,15 @@ public:
 	static void init();
 	static void SystemClock_Config(void);
 	static void MX_GPIO_Init(void);
-	static void MX_USART2_UART_Init(void);
 	static void MX_NVIC_Init(void);
 
 	//functions
 	static void Error_Handler();
 
-	static inline UART_HandleTypeDef* getUart() {return &huart2;}
+
 
 private:
-	static UART_HandleTypeDef huart2;
+
 };
 
 

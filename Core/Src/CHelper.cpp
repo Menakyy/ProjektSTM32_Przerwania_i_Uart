@@ -10,14 +10,13 @@
 #include "CHelper.h"
 #include "CDriver.h"
 
-UART_HandleTypeDef CHelper::huart2;
+//UART_HandleTypeDef CHelper::huart2;
 
 
 void CHelper::init()
 {
 	SystemClock_Config();
 	MX_GPIO_Init();
-	MX_USART2_UART_Init();
 	MX_NVIC_Init();
 }
 
@@ -36,7 +35,7 @@ extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart == CHelper::getUart()) //huart->Instance == USART2
+	if(huart == CDriver::m_uartDriver.getUart()) //huart->Instance == USART2
 	{
 
 	}
@@ -44,7 +43,7 @@ extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 
 extern "C" void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	if(huart == CHelper::getUart())
+	if(huart == CDriver::m_uartDriver.getUart())
 	{
 		CDriver::m_uartDriver.irqRxComplete();
 	}
@@ -106,24 +105,6 @@ void CHelper::MX_NVIC_Init()
 	/* USART2_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(USART2_IRQn);
-}
-
-void CHelper::MX_USART2_UART_Init()
-{
-	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 38400;
-	huart2.Init.WordLength = UART_WORDLENGTH_8B;
-	huart2.Init.StopBits = UART_STOPBITS_1;
-	huart2.Init.Parity = UART_PARITY_NONE;
-	huart2.Init.Mode = UART_MODE_TX_RX;
-	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart2.Init.OverSampling = UART_OVERSAMPLING_16;
-	huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-	huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-	if (HAL_UART_Init(&huart2) != HAL_OK)
-	{
-		Error_Handler();
-	}
 }
 
 void CHelper::SystemClock_Config()

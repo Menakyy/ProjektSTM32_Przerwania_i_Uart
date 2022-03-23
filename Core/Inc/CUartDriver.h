@@ -28,8 +28,8 @@ public:
 
 	uint8_t m_buffer[BUFFER_SIZE];
 
-
-	void init(UART_HandleTypeDef* m_uartDriver);
+	void init();
+	void Error_Handler();
 
 	void transmit(uint8_t *pData, uint16_t Size, uint32_t Timeout);
 	void receive(uint8_t *pData, uint16_t Size, uint32_t Timeout);
@@ -38,19 +38,25 @@ public:
 	void receiveIT(uint8_t *pData, uint16_t Size);
 
 	void irqRxComplete();
+	void turnOnReceivingIfOff();
+
 	BufferState writeToBuffer(uint8_t value);
 	BufferState readFromBuffer(uint8_t* value);
 	void Flush();
+	void isEndLine(uint8_t value);
 
+	UART_HandleTypeDef* getUart() {return &m_huart2;}
 
-	uint8_t m_dataReceive;
 
 private:
 
-	UART_HandleTypeDef* 	m_uartDriver;
+	UART_HandleTypeDef m_huart2;
 
 	uint16_t m_tail;
 	uint16_t m_head;
+	uint8_t m_dataReceive;
+	uint8_t m_receivedLines;
+
 	BufferState bufferState;
 };
 
