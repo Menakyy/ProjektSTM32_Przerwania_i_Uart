@@ -6,7 +6,7 @@
  */
 
 #include <CUartDriver.h>
-
+#include "string.h"
 //UART_HandleTypeDef CUartDriver::m_huart2;
 
 CUartDriver::CUartDriver() {
@@ -40,8 +40,10 @@ void CUartDriver::init()
 
 void CUartDriver::irqRxComplete()
 {
-	writeToBuffer(m_dataReceive);
-	isEndLine(m_dataReceive);
+	if(writeToBuffer(m_dataReceive) == BS_OK)
+	{
+		isEndLine(m_dataReceive);
+	}
 	HAL_UART_Receive_IT(&m_huart2, &m_dataReceive, sizeof(m_dataReceive));
 }
 
@@ -58,8 +60,41 @@ void CUartDriver::isEndLine(uint8_t value)
 	if(value == '\n')
 	{
 		m_receivedLines++;
+		writeToReceivedBuffer();
 	}
 }
+
+void CUartDriver::writeToReceivedBuffer()
+{
+	uint8_t index = 0;
+	do
+	{
+		readFromBuffer(&m_tmpReceivedData);
+		if(m_tmpReceivedData == '\n')
+		{
+			m_receivedBuffer[index] = 0;
+		}
+		else
+		{
+			m_receivedBuffer[index] = m_tmpReceivedData;
+		}
+		index++;
+	}while(m_tmpReceivedData != '\n');
+
+	m_receivedLines--;
+
+}
+
+bool CUartDriver::parsing(const char* command)
+{
+	if(strcmp(command, (char*)m_receivedBuffer) == 0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
 void CUartDriver::transmit(uint8_t *pData, uint16_t Size, uint32_t Timeout)
 {
 	HAL_UART_Transmit(&m_huart2, pData, Size, Timeout);

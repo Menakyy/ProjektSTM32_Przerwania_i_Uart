@@ -27,7 +27,7 @@ public:
 	};
 
 	void init(GPIO_TypeDef* GpioPort, uint16_t GpioPin, LedStates state);
-	virtual void update();
+	void update();
 
 	void 		setState(LedStates state);
 	LedStates 	getState();

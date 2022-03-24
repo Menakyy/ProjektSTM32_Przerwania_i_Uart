@@ -12,6 +12,7 @@ C_SRCS += \
 
 CPP_SRCS += \
 ../Core/Src/CButton.cpp \
+../Core/Src/CControlLedByUart.cpp \
 ../Core/Src/CDriver.cpp \
 ../Core/Src/CHelper.cpp \
 ../Core/Src/CLed.cpp \
@@ -28,6 +29,7 @@ C_DEPS += \
 
 OBJS += \
 ./Core/Src/CButton.o \
+./Core/Src/CControlLedByUart.o \
 ./Core/Src/CDriver.o \
 ./Core/Src/CHelper.o \
 ./Core/Src/CLed.o \
@@ -42,6 +44,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./Core/Src/CButton.d \
+./Core/Src/CControlLedByUart.d \
 ./Core/Src/CDriver.d \
 ./Core/Src/CHelper.d \
 ./Core/Src/CLed.d \
@@ -54,6 +57,8 @@ CPP_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 Core/Src/CButton.o: ../Core/Src/CButton.cpp Core/Src/subdir.mk
 	arm-none-eabi-g++ "$<" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/CButton.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+Core/Src/CControlLedByUart.o: ../Core/Src/CControlLedByUart.cpp Core/Src/subdir.mk
+	arm-none-eabi-g++ "$<" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/CControlLedByUart.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Core/Src/CDriver.o: ../Core/Src/CDriver.cpp Core/Src/subdir.mk
 	arm-none-eabi-g++ "$<" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Core/Src/CDriver.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Core/Src/CHelper.o: ../Core/Src/CHelper.cpp Core/Src/subdir.mk

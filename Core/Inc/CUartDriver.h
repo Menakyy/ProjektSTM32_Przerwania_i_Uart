@@ -18,7 +18,8 @@ public:
 	CUartDriver();
 	virtual ~CUartDriver();
 
-	static const uint8_t BUFFER_SIZE = 8;
+	static const uint8_t BUFFER_SIZE = 16;
+	static const uint8_t RECEIVED_BUFFER_SIZE  = 32;
 
 	enum BufferState
 	{
@@ -27,6 +28,7 @@ public:
 	};
 
 	uint8_t m_buffer[BUFFER_SIZE];
+	uint8_t m_receivedBuffer[RECEIVED_BUFFER_SIZE];
 
 	void init();
 	void Error_Handler();
@@ -44,6 +46,8 @@ public:
 	BufferState readFromBuffer(uint8_t* value);
 	void Flush();
 	void isEndLine(uint8_t value);
+	void writeToReceivedBuffer();
+	bool parsing(const char* command);
 
 	UART_HandleTypeDef* getUart() {return &m_huart2;}
 
@@ -56,6 +60,8 @@ private:
 	uint16_t m_head;
 	uint8_t m_dataReceive;
 	uint8_t m_receivedLines;
+	uint8_t m_tmpReceivedData;
+
 
 	BufferState bufferState;
 };
