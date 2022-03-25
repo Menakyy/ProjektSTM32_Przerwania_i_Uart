@@ -10,6 +10,7 @@
 #include "string.h"
 #include "stdio.h"
 
+
 uint8_t CDriver::driverBuffer[32];
 uint8_t CDriver::testValue;
 
@@ -19,6 +20,9 @@ CUartDriver CDriver::m_uartDriver;
 CLed CDriver::m_greenLed;
 CButton CDriver::m_blueButton;
 CStateMachineLed CDriver::m_stateMachineLed;
+CControlLedByUart CDriver::m_controlLedByUart;
+
+
 
 const char message[] = "test\r\n";
 
@@ -33,17 +37,20 @@ void CDriver::init()
 {
 	m_uartDriver.init();
 
-	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::toggle);
-	m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
-	m_stateMachineLed.init(&m_greenLed,&m_blueButton,&m_uartDriver);
+	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::off);
+	//m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
+	//m_stateMachineLed.init(&m_greenLed,&m_blueButton,&m_uartDriver);
+	m_controlLedByUart.init(&m_uartDriver, &m_greenLed);
 }
 
 
 void CDriver::update()
 {
-//	m_blueButton.update();
+
 	m_greenLed.update();
-//	m_stateMachineLed.update();
+	//m_blueButton.update();
+	//m_stateMachineLed.update();
+	m_controlLedByUart.update();
 
 
 

@@ -15,6 +15,7 @@
 #include "CStateMachineLed.h"
 #include "CHelper.h"
 #include "CUartDriver.h"
+#include "CControlLedByUart.h"
 
 class CDriver
 {
@@ -32,6 +33,7 @@ public:
 	static CLed 			m_greenLed;
 	static CButton			m_blueButton;
 	static CStateMachineLed m_stateMachineLed;
+	static CControlLedByUart m_controlLedByUart;
 
 
 	static uint8_t driverBuffer[32];

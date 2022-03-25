@@ -34,7 +34,6 @@ public:
 	void setState(ButtonStates state);
 	ButtonStates getState();
 
-	void callBack(void* Callback());
 
 
 private:

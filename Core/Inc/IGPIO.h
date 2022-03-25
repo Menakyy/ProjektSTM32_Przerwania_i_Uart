@@ -14,6 +14,7 @@ public:
 //	virtual ~IGPIO();
 
 	virtual void update() = 0;
+	//virtual void setState() = 0;
 };
 
 #endif /* INC_IGPIO_H_ */

@@ -16,7 +16,7 @@ CControlLedByUart::~CControlLedByUart() {
 	// TODO Auto-generated destructor stub
 }
 
-void CControlLedByUart::init(CUartDriver* uartDriver, IGPIO* led)
+void CControlLedByUart::init(CUartDriver* uartDriver, CLed* led)
 {
 	m_uartDriver = uartDriver;
 	m_led = led;
@@ -24,12 +24,12 @@ void CControlLedByUart::init(CUartDriver* uartDriver, IGPIO* led)
 
 void CControlLedByUart::update()
 {
-	if(m_uartDriver->parsing(commands.led_on))
+	if(m_uartDriver->parsing(/*commands.*/led_on))
 	{
-
+		m_led->turnOnLed();
 	}
-	else if(m_uartDriver->parsing(commands.led_off))
+	else if(m_uartDriver->parsing(/*commands.*/led_off))
 	{
-
+		m_led->turnOffLed();
 	}
 }

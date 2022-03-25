@@ -1,4 +1,4 @@
-/*
+	/*
  * CControlLedByUart.h
  *
  *  Created on: 24 mar 2022
@@ -18,23 +18,23 @@ public:
 	CControlLedByUart();
 	virtual ~CControlLedByUart();
 
-	struct SCommands
-	{
-		const char* led_on[] = "LED_ON";
-		const char* led_off[] = "LED_OFF";
-	};
+//	struct SCommands
+//	{
+//		static constexpr char led_on[] {"LED_ON"};
+//		static constexpr char led_off[] {"LED_OFF"};
+//	};
 
-	void init(CUartDriver* uartDriver, IGPIO* led);
+	char led_on[7] {"LED_ON"};
+	char led_off[8] {"LED_OFF"};
+	void init(CUartDriver* uartDriver, CLed* led);
 	void update();
 
 private:
 
-	//static CLedCommands m_ledCommands;
-
-	SCommands commands;
+	//SCommands commands;
 
 	CUartDriver* m_uartDriver;
-	IGPIO* m_led;
+	CLed* m_led;
 };
 
 #endif /* CCONTROLLEDBYUART_H_ */

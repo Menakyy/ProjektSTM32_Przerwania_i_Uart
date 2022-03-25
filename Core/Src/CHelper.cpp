@@ -20,18 +20,18 @@ void CHelper::init()
 	MX_NVIC_Init();
 }
 
-extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	if(GPIO_Pin == Mybutton_Pin)
-	{
-		HAL_GPIO_TogglePin(Reddiode_GPIO_Port, Reddiode_Pin);
-	}
-
-	if(GPIO_Pin == B1_Pin)
-	{
-		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	}
-}
+//extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+//{
+//	if(GPIO_Pin == Mybutton_Pin)
+//	{
+//		HAL_GPIO_TogglePin(Reddiode_GPIO_Port, Reddiode_Pin);
+//	}
+//
+//	if(GPIO_Pin == B1_Pin)
+//	{
+//		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//	}
+//}
 
 extern "C" void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
