@@ -10,9 +10,8 @@
 
 #include "stm32f3xx_hal.h"
 #include "GPIOs.h"
-#include "IGPIO.h"
 
-class CButton : public IGPIO
+class CButton
 {
 public:
 

@@ -17,8 +17,16 @@ uint8_t CDriver::testValue;
 
 CUartDriver CDriver::m_uartDriver;
 
+CLed CDriver::LD2;
+CLed CDriver::m_redLed;
+CLed CDriver::m_blueLed;
 CLed CDriver::m_greenLed;
+
 CButton CDriver::m_blueButton;
+
+
+
+
 CStateMachineLed CDriver::m_stateMachineLed;
 CControlLedByUart CDriver::m_controlLedByUart;
 
@@ -37,16 +45,24 @@ void CDriver::init()
 {
 	m_uartDriver.init();
 
-	m_greenLed.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::off);
+	LD2.init(LD2_GPIO_Port, LD2_Pin, CLed::LedStates::off);
+
+	m_redLed.init(Reddiode_GPIO_Port, Reddiode_Pin, CLed::LedStates::off);
+	m_blueLed.init(BlueDiode_GPIO_Port, BlueDiode_Pin, CLed::LedStates::off);
+	m_greenLed.init(GreenDiode_GPIO_Port,GreenDiode_Pin,CLed::LedStates::off);
+
 	//m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
 	//m_stateMachineLed.init(&m_greenLed,&m_blueButton,&m_uartDriver);
-	m_controlLedByUart.init(&m_uartDriver, &m_greenLed);
+	m_controlLedByUart.init(&m_uartDriver, &LD2);
 }
 
 
 void CDriver::update()
 {
 
+	LD2.update();
+	m_redLed.update();
+	m_blueLed.update();
 	m_greenLed.update();
 	//m_blueButton.update();
 	//m_stateMachineLed.update();

@@ -24,11 +24,11 @@ void CControlLedByUart::init(CUartDriver* uartDriver, CLed* led)
 
 void CControlLedByUart::update()
 {
-	if(m_uartDriver->parsing(/*commands.*/led_on))
+	if(m_uartDriver->parsing(m_commands.led_on))
 	{
 		m_led->turnOnLed();
 	}
-	else if(m_uartDriver->parsing(/*commands.*/led_off))
+	else if(m_uartDriver->parsing(m_commands.led_off))
 	{
 		m_led->turnOffLed();
 	}

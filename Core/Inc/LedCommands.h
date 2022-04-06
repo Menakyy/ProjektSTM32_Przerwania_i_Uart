@@ -11,12 +11,14 @@
 
 class CLedCommands
 {
-//	struct SCommands
-//	{
-//		const char* led_on[] = "LED_ON";
-//		const char* led_off[] = "LED_OFF";
-//	}commands;
-};
+public:
+	struct SCommands
+	{
+		char led_on[7] {"LED_ON"};
+		char led_off[8] {"LED_OFF"};
+	};
 
+	SCommands commands;
+};
 
 #endif /* INC_LEDCOMMANDS_H_ */

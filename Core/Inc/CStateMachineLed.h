@@ -12,7 +12,6 @@
 #include "CLed.h"
 #include "CButton.h"
 #include "CUartDriver.h"
-#include "IGPIO.h"
 
 class CStateMachineLed {
 public:

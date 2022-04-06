@@ -30,7 +30,12 @@ public:
 
 	static CUartDriver		m_uartDriver;
 
+	static CLed 			LD2;
+
+	static CLed 			m_redLed;
+	static CLed 			m_blueLed;
 	static CLed 			m_greenLed;
+
 	static CButton			m_blueButton;
 	static CStateMachineLed m_stateMachineLed;
 	static CControlLedByUart m_controlLedByUart;

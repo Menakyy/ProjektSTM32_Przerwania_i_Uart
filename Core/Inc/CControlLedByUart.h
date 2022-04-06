@@ -18,21 +18,20 @@ public:
 	CControlLedByUart();
 	virtual ~CControlLedByUart();
 
-//	struct SCommands
-//	{
-//		static constexpr char led_on[] {"LED_ON"};
-//		static constexpr char led_off[] {"LED_OFF"};
-//	};
+	struct SCommands
+	{
+		char led_on[7] {"LED_ON"};
+		char led_off[8] {"LED_OFF"};
+	};
 
-	char led_on[7] {"LED_ON"};
-	char led_off[8] {"LED_OFF"};
 	void init(CUartDriver* uartDriver, CLed* led);
 	void update();
 
 private:
 
-	//SCommands commands;
+	SCommands m_commands;
 
+	//CLedCommands* m_commands;
 	CUartDriver* m_uartDriver;
 	CLed* m_led;
 };
