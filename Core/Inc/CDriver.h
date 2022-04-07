@@ -16,6 +16,7 @@
 #include "CHelper.h"
 #include "CUartDriver.h"
 #include "CControlLedByUart.h"
+#include "CCompleteParser.h"
 
 class CDriver
 {
@@ -31,15 +32,14 @@ public:
 	static CUartDriver		m_uartDriver;
 
 	static CLed 			LD2;
-
 	static CLed 			m_redLed;
 	static CLed 			m_blueLed;
 	static CLed 			m_greenLed;
-
 	static CButton			m_blueButton;
+
 	static CStateMachineLed m_stateMachineLed;
 	static CControlLedByUart m_controlLedByUart;
-
+	static CCompleteParser	m_completeParser;
 
 	static uint8_t driverBuffer[32];
 	static uint8_t testValue;

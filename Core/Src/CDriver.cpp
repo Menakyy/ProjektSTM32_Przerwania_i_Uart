@@ -17,19 +17,16 @@ uint8_t CDriver::testValue;
 
 CUartDriver CDriver::m_uartDriver;
 
-CLed CDriver::LD2;
-CLed CDriver::m_redLed;
-CLed CDriver::m_blueLed;
-CLed CDriver::m_greenLed;
-
-CButton CDriver::m_blueButton;
-
+CLed 		CDriver::LD2;
+CLed 		CDriver::m_redLed;
+CLed 		CDriver::m_blueLed;
+CLed		CDriver::m_greenLed;
+CButton 	CDriver::m_blueButton;
 
 
-
-CStateMachineLed CDriver::m_stateMachineLed;
-CControlLedByUart CDriver::m_controlLedByUart;
-
+CStateMachineLed 	CDriver::m_stateMachineLed;
+CControlLedByUart 	CDriver::m_controlLedByUart;
+CCompleteParser		CDriver::m_completeParser;
 
 
 const char message[] = "test\r\n";
@@ -54,6 +51,7 @@ void CDriver::init()
 	//m_blueButton.init(B1_GPIO_Port, B1_Pin, 20);
 	//m_stateMachineLed.init(&m_greenLed,&m_blueButton,&m_uartDriver);
 	m_controlLedByUart.init(&m_uartDriver, &LD2);
+	m_completeParser.init(&m_uartDriver, &m_redLed, &m_blueLed, &m_greenLed);
 }
 
 
@@ -61,12 +59,15 @@ void CDriver::update()
 {
 
 	LD2.update();
+
 	m_redLed.update();
 	m_blueLed.update();
 	m_greenLed.update();
 	//m_blueButton.update();
 	//m_stateMachineLed.update();
+
 	m_controlLedByUart.update();
+	//m_completeParser.update();
 
 
 
